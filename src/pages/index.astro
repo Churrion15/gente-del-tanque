@@ -1,11 +1,58 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import People from "../components/People.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const tanquesittos = [
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+  { name: "Churrion", img: "/images/1.jpg", infoUrl: "/Churrion" },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <div class="container">
+    <h1>GENTE DEL TANQUE</h1>
+    <div class="niggas">
+      {tanquesittos.map((nigga) => <People {...nigga} />)}
+    </div>
+  </div>
+
+  <style>
+    .container {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-botton: 20px;
+    }
+
+    .niggas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .niggas {
+        gap: 5px;
+      }
+    }
+  </style>
 </Layout>
